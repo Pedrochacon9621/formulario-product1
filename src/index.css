@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Segoe UI"
+}
+label, button{
+    font-weight: 500;
+}
+button{
+    font-size: 1rem;
+}
+input{
+    height: 30px;
+    border: solid rgb(177, 177, 177) 1px;
+    border-radius: 5px;
+    padding-left:10px;
+    padding-right: 10px;
+}
+
+textarea{
+    height: 100px;
+    resize: none;           /* Desactiva el redimensionamiento manual */
+    overflow: auto;         /* Muestra scroll cuando el contenido excede */
+    border-radius: 5px;
+    border: solid rgb(177, 177, 177) 1px;
+    padding-left:10px;
+    padding-right: 10px;
+}
+select{
+    border-radius: 5px;
+    border: solid rgb(177, 177, 177) 1px;
+}

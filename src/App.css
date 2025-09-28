@@ -1,0 +1,193 @@
+/*Generales-----------------------------------------------------------------------------------------------------------------------------*/
+.mainL{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 243, 243);
+}
+.main1{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background-color: rgb(243, 243, 243);
+}
+/*Generales-----------------------------------------------------------------------------------------------------------------------------*/
+
+/*NAV-----------------------------------------------------------------------------------------------------------------------------------*/
+.nav1{
+    height: 100px;
+    background-color: rgb(44,44,44);
+    background-color: rgb(47, 62, 94);
+    padding-bottom: 15px;
+}
+.content-menu{
+    width: 100%;
+    height: 100%;
+}
+.menu1{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 80px;
+    height: 100%;
+    width: 100%;
+}
+.menu1 li, a{
+    list-style: none;
+    text-decoration: none;
+    color: rgb(230,230,230);
+    font-weight: 500;
+    cursor: pointer;
+}
+.submenu1{
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    background-color: rgb(44,44,44);
+    background-color: rgb(47, 62, 94);
+    border-radius: 3px;
+    display: none;
+    padding: 15px 10px;
+}
+.submenu1 li{
+    padding: 0 5px;
+    border-radius: 5px;
+}
+.submenu1 li:hover{
+    background-color: rgb(77, 77, 77);
+    background-color: rgb(79, 102, 151);
+}
+.menu-desplega:hover .submenu1{
+    display: flex;
+}
+.nombreUser{
+  color: rgb(230,230,230);
+  text-decoration: underline;
+  
+}
+/*NAV-----------------------------------------------------------------------------------------------------------------------------------*/
+
+/*FORM1-----------------------------------------------------------------------------------------------------------------------------*/
+.form1{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 400px;
+    padding: 50px;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+}
+.form1-item{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.form1-itemCheck{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.inputFile{
+    border: none;
+    height: auto;
+}
+.form1-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(46, 96, 206);
+    color: rgb(230,230,230);
+    cursor: pointer;
+}
+/*FORM1-----------------------------------------------------------------------------------------------------------------------------*/
+
+/*TABLA-----------------------------------------------------------------------------------------------------------------------------*/
+.imgTabla1{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px; /* opcional, para esquinas redondeadas */
+}
+.content-tabla1 {
+  background-color: rgb(230, 230, 230);
+  width: fit-content;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tr1 {
+  background-color: rgb(51, 79, 138);
+  color: rgb(243, 243, 243);
+}
+
+/* Aplica border-radius solo a las esquinas superiores del encabezado */
+thead tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+thead tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+th, td {
+  padding:10px;
+  text-align: center;
+  max-width: 350px;
+  height: auto;
+  word-wrap: break-word;       /* para navegadores antiguos */
+  overflow-wrap: break-word;   /* estándar moderno */
+  white-space: normal;         /* permite saltos de línea */
+  border: 1px solid rgb(194, 192, 192);
+}
+td{
+    background-color: rgb(243, 243, 243);
+}
+
+/* Eliminar borde izquierdo de la primera columna */
+td:first-child, th:first-child {
+  border-left: none;
+}
+
+/* Eliminar borde derecho de la última columna */
+td:last-child, th:last-child {
+  border-right: none;
+}
+
+/* Eliminar borde superior del encabezado */
+thead tr:first-child th {
+  border-top: none;
+}
+.contentBtn-tabla1{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.btn-tabla1{
+  font-size: 13px;
+  padding: 0 2px;
+}
+.inputImg-tabla{
+  width: 100px;
+  padding: 0;
+  border: none;
+}
+/*TABLA-----------------------------------------------------------------------------------------------------------------------------*/
+
+/*Footer-------------------------------------------------------------------------------------------------------------------------------*/
+.footer1{
+    height: 100px;
+    background-color: rgb(44,44,44);
+    background-color: rgb(47, 62, 94);
+}
+/*Footer-------------------------------------------------------------------------------------------------------------------------------*/
