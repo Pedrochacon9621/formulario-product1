@@ -18,7 +18,6 @@ export function TablaProductos() {
     }  
   useEffect(() => {
     cargarProductos();
-    console.log(productos);
     
   }, []);
 
@@ -105,6 +104,8 @@ export function TablaProductos() {
               ) : (
                 // Modo visual: mostramos datos normales
                 <>
+                  {console.log(producto.img_prod)}
+                  
                   <td>{producto.nombre_prod}</td>
                   <td>{producto.descripcion_prod}</td>
                   <td>{producto.precio_prod}</td>
