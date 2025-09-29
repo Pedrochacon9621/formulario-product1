@@ -4,6 +4,14 @@ import { todosProductos, actualizarProducto, eliminarProducto } from "../api/api
 import { useUser } from "../context/UserContext";
 
 export function TablaProductos() {
+  const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/do1we5kur/";
+  function obtenerUrlImagen(ruta) {
+  if (!ruta) return null;
+  return ruta.startsWith("http")
+    ? ruta
+    : `${CLOUDINARY_BASE_URL}${ruta}`;
+}
+
   const {user}=useUser()
   const [productos, setProductos] = useState([]);
   const [editandoId, setEditandoId] = useState(null);//para declarar la fila a editar
@@ -92,7 +100,7 @@ export function TablaProductos() {
                   <td>
                     {/* Campo de imagen: solo se envía si el usuario selecciona una nueva */}
                     <input className="inputImg-tabla" type="file" {...register("img_prod")} />
-                    <img className="imgTabla1" src={producto.img_prod} alt="" style={{ marginTop: "5px" }}/>
+                    <img className="imgTabla1" src={obtenerUrlImagen(producto.img_prod)} alt="" style={{ marginTop: "5px" }}/>
                   </td>
                   <td>
                     <div className="contentBtn-tabla1">
@@ -116,7 +124,7 @@ export function TablaProductos() {
                   <td>{producto.fecha_creacion_prod}</td>
                   <td>{producto.fecha_modificacion_prod}</td>
                   <td>
-                    <img className="imgTabla1" src={producto.img_prod} alt="" />
+                    <img className="imgTabla1" src={obtenerUrlImagen(producto.img_prod)} alt="" />
                   </td>
                   <td>
                     {/* Activamos modo edición y cargamos valores en el formulario */}
