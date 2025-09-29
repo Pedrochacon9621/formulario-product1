@@ -18,6 +18,8 @@ export function TablaProductos() {
     }  
   useEffect(() => {
     cargarProductos();
+    console.log(productos);
+    
   }, []);
 
   // Enviar solo los campos modificados
