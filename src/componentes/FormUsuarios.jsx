@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export function FormUsuarios() {
     const [roles, setRoles] = useState([]);
+    const [loading, setLoading] = useState(false); // ← estado de carga
     const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm();
 
     useEffect(() => {
@@ -11,13 +12,14 @@ export function FormUsuarios() {
             const res = await todosRol();
             setRoles(res.data);
             if (res.data.length > 0) {
-                setValue("rol", String(res.data[1].id_rol)); // ← asegúrate que sea string
+                setValue("rol", String(res.data[1].id_rol));
             }
         }
         cargarRoles();
     }, [setValue]);
 
     const onSubmit = handleSubmit(async usuario => {
+        setLoading(true);
         try {
             await guardarUsuario(usuario);
             alert("Usuario guardado correctamente");
@@ -25,11 +27,20 @@ export function FormUsuarios() {
         } catch (error) {
             console.error("Error al guardar usuario:", error);
             alert("Hubo un error al guardar el usuario");
+        } finally {
+            setLoading(false);
         }
     });
 
     return (
         <div>
+            {loading && (
+                <div className="modal-loading">
+                    <div className="modal-content">
+                        <p>Guardando...</p>
+                    </div>
+                </div>
+            )}
             <div className="content-form">
                 <form className="form1" onSubmit={onSubmit}>
                     <div className="form1-item">
@@ -67,10 +78,13 @@ export function FormUsuarios() {
                         </select>
                     </div>
                     <div>
-                        <button className="form1-btn" type="submit">Guardar</button>
+                        <button className="form1-btn" type="submit" disabled={loading}>
+                            {loading ? "Guardando..." : "Guardar"}
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     );
 }
+

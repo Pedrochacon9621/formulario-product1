@@ -5,6 +5,7 @@ import { guardarProducto, todosCategorias } from "../api/api";
 export function FormProductos() {
     const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm();
     const [categorias, setCategorias] = useState([]);
+    const [loading, setLoading] = useState(false); // ← estado de carga
 
     useEffect(() => {
         async function cargarCategorias() {
@@ -30,6 +31,7 @@ export function FormProductos() {
             formData.append("img_prod", producto.img_prod);
         }
 
+        setLoading(true);
         try {
             await guardarProducto(formData);
             alert("Producto guardado correctamente");
@@ -37,11 +39,20 @@ export function FormProductos() {
         } catch (error) {
             console.error("Error al guardar producto:", error);
             alert("Hubo un error al guardar el producto");
+        } finally {
+            setLoading(false);
         }
     });
 
     return (
         <div>
+            {loading && (
+                <div className="modal-loading">
+                    <div className="modal-content">
+                        <p>Guardando...</p>
+                    </div>
+                </div>
+            )}
             <div className="content-form">
                 <form className="form1" onSubmit={onSubmit}>
                     <div className="form1-item">
@@ -85,10 +96,13 @@ export function FormProductos() {
                         </select>
                     </div>
                     <div>
-                        <button className="form1-btn" type="submit">Guardar</button>
+                        <button className="form1-btn" type="submit" disabled={loading}>
+                            {loading ? "Guardando..." : "Guardar"}
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     );
 }
+
