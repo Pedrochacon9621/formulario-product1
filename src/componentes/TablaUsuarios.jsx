@@ -17,8 +17,8 @@ export function TablaUsuarios() {
                     const res = await todosRol()
                     setRoles(res.data)
                 }
-        cargarRoles()
-        cargarUsuarios()
+            cargarUsuarios()    
+            cargarRoles()
     },[])
     const onSubmit = async (data) => {
             // Creamos un objeto con solo los campos modificados
