@@ -66,7 +66,8 @@ export function FormProductos() {
                     </div>
                     <div className="form1-item">
                         <label htmlFor="descripcion_prod">Descripción del producto</label>
-                        <textarea id="descripcion_prod" {...register("descripcion_prod", { required: false })}></textarea>
+                        <textarea id="descripcion_prod" {...register("descripcion_prod", { required: "--campo obligatorio--" })}></textarea>
+                        {errors.descripcion_prod && <p style={{ color: "red" }}>{errors.descripcion_prod.message}</p>}
                     </div>
                     <div className="form1-item">
                         <label htmlFor="precio_prod">Precio</label>
