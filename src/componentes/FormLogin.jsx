@@ -3,14 +3,26 @@ import { login } from '../api/api'
 import { useUser } from '../context/UserContext'
 export function FormLogin() {
     const {refreshUser}=useUser() // ← accede a la función del contexto
+    const [loading, setLoading] = useState(false); // ← nuevo estado 
 
     const {register, handleSubmit, formState:{errors} }= useForm()
     const onSubmit = handleSubmit(async usuario =>{
+       setLoading(true); // ← activa el modal
        await login (usuario)
        await refreshUser()
+       setLoading(false); // ← desactiva el modal
+
     })
     return(
         <div>
+            {loading && (
+                <div className="modal-loading">
+                    <div className="modal-content">
+                        <p>Cargando...</p>
+                    </div>
+                </div>
+            )}
+
             <div className="content-form">
                 <form className="form1" onSubmit={onSubmit}>
                     <div className="form1-item">
@@ -24,7 +36,7 @@ export function FormLogin() {
                         {errors.password && <p style={{color:"red"}}>{errors.password.message}</p>}
                     </div>
                     <div>
-                        <button className="form1-btn" type="submit">Iniciar sesión</button>
+                        <button className="form1-btn" type="submit" disabled={loading}>{loading ? "Cargando..." : "Iniciar sesión"}</button>
                     </div>
                 </form>
             </div>

@@ -191,3 +191,27 @@ thead tr:first-child th {
     background-color: rgb(47, 62, 94);
 }
 /*Footer-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*MOdal de Login-------------------------------------------------------------------------------------------------------------------------------*/
+.modal-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/*MOdal de Login-------------------------------------------------------------------------------------------------------------------------------*/
