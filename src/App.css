@@ -19,13 +19,13 @@
 }
 .content-btnEnlace{
   margin-bottom: 10px;
-  margin-right: 40px;
+  padding-left: 60px;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 .btn-enlace1{
-  background-color: rgb(47, 62, 94);
+  background-color: rgb(51, 79, 138);
   padding: 10px;
   border-radius: 20px;
 }
