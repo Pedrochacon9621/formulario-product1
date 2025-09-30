@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { login } from '../api/api'
 import { useUser } from '../context/UserContext'
+import { useState } from 'react'
 export function FormLogin() {
     const {refreshUser}=useUser() // ← accede a la función del contexto
     const [loading, setLoading] = useState(false); // ← nuevo estado 
@@ -11,7 +12,6 @@ export function FormLogin() {
        await login (usuario)
        await refreshUser()
        setLoading(false); // ← desactiva el modal
-
     })
     return(
         <div>
