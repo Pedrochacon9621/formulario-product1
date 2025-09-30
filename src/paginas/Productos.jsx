@@ -9,7 +9,7 @@ export function Productos() {
             <Nav/>
             <div className="main1">
                 <div>
-                    <BotonEnlace className="content-btnEnlace2" url="/formularioproductos" texto="+ Añadir nuevo"/>
+                    <BotonEnlace url="/formularioproductos" texto="+ Añadir nuevo"/>
                     <TablaProductos/>
                 </div>
             </div>
