@@ -2,6 +2,7 @@ import { TablaUsuarios } from "../componentes/TablaUsuarios";
 import { Nav } from "../componentes/Nav";
 import { Footer } from "../componentes/Footer";
 import { useUser } from "../context/UserContext";
+import { BotonEnlace } from "../componentes/BotonEnlace";
 export function Usuarios() {
     const { user, loading } = useUser();
 
@@ -12,7 +13,10 @@ export function Usuarios() {
         <div>
             <Nav/>
                 <div className="main1">
-                    <TablaUsuarios/>
+                    <div>
+                        <BotonEnlace url="/formulariousuarios" texto="+ Añadir nuevo"/>
+                        <TablaUsuarios/>
+                    </div>
                 </div>
             <Footer/>
         </div>
