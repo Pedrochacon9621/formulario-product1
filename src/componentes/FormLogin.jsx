@@ -8,10 +8,17 @@ export function FormLogin() {
 
     const {register, handleSubmit, formState:{errors} }= useForm()
     const onSubmit = handleSubmit(async usuario =>{
-       setLoading(true); // ← activa el modal
-       await login (usuario)
-       await refreshUser()
-       setLoading(false); // ← desactiva el modal
+        setLoading(true);
+        try {
+            await login(usuario); // ← tu función que llama al backend
+            await refreshUser();
+        } catch (error) {
+            console.error("Error de login:", error);
+            alert("Usuario o contraseña incorrectos");
+        } finally {
+            setLoading(false);
+        }
+
     })
     return(
         <div>
