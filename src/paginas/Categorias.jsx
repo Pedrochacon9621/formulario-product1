@@ -5,7 +5,7 @@ import { TablaCategorias } from "../componentes/TablaCategorias";
 
 export function Categorias() {
     return(
-        <div>
+        <div className="principal1">
             <Nav/>
             <div className="main1">
                 <div>

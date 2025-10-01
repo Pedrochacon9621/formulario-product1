@@ -10,7 +10,7 @@ export function Usuarios() {
   if (!user || user.rol !== 1) return null;
 
     return(
-        <div>
+        <div className="principal1">
             <Nav/>
                 <div className="main1">
                     <div>
