@@ -79,16 +79,16 @@ export function TablaProductos() {
               {editandoId === producto.id_prod ? (
                 // Modo edición: mostramos inputs
                 <>
-                  <td><input {...register("nombre_prod")} defaultValue={producto.nombre_prod}/></td>
+                  <td><input className="input-tabla2" {...register("nombre_prod")} defaultValue={producto.nombre_prod}/></td>
                   <td><input {...register("descripcion_prod")} defaultValue={producto.descripcion_prod}/></td>
-                  <td><input type="number" step="0.01" {...register("precio_prod")} defaultValue={producto.precio_prod}/></td>
-                  <td><input {...register("categoria_prod")} defaultValue={producto.categoria_prod}/></td>
+                  <td><input className="input-tabla1" type="number" step="0.01" {...register("precio_prod")} defaultValue={producto.precio_prod}/></td>
+                  <td><input className="input-tabla1" {...register("categoria_prod")} defaultValue={producto.categoria_prod}/></td>
                   <td><select {...register("disponible")}>
                       <option value={true}>Sí</option>
                       <option value={false}>No</option>
                     </select>
                   </td>
-                  <td><input type="number" {...register("tiempo_preparacion")} defaultValue={producto.tiempo_preparacion}/></td>
+                  <td><input className="input-tabla1" type="number" {...register("tiempo_preparacion")} defaultValue={producto.tiempo_preparacion}/></td>
                   <td>
                     <select {...register("destacado")}>
                       <option value={true}>Sí</option>
@@ -99,8 +99,10 @@ export function TablaProductos() {
                   <td>{producto.fecha_modificacion_prod}</td>
                   <td>
                     {/* Campo de imagen: solo se envía si el usuario selecciona una nueva */}
-                    <input className="inputImg-tabla" type="file" {...register("img_prod")} />
-                    <img className="imgTabla1" src={obtenerUrlImagen(producto.img_prod)} alt="" style={{ marginTop: "5px" }}/>
+                    <div className="contentBtn-tabla1">
+                      <input className="inputImg-tabla" type="file" {...register("img_prod")} />
+                      <img className="imgTabla1" src={obtenerUrlImagen(producto.img_prod)} alt="" style={{ marginTop: "5px" }}/>
+                    </div>
                   </td>
                   <td>
                     <div className="contentBtn-tabla1">
