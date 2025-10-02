@@ -5,7 +5,7 @@ import { BotonEnlace } from "../componentes/BotonEnlace"
 
 export function Productos() {
     return (
-        <div className="principal1">
+        <div>
             <Nav/>
             <div className="main1">
                 <div>

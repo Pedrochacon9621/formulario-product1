@@ -7,7 +7,7 @@ export function Nav() {
 
     return(
         <div>
-            <div>
+            <div className="ancho-max">
                 <nav className="nav1">
                     <div className="content-menu">
                         <ul className="menu1">

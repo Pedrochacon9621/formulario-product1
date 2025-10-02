@@ -4,7 +4,7 @@ import { Footer } from "../componentes/Footer";
 import { BotonEnlace } from "../componentes/BotonEnlace";
 export function FormularioProductos() {
     return(
-        <div className="principal1">
+        <div>
             <Nav/>
             <div className="main1">
                 <div>
