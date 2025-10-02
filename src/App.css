@@ -83,6 +83,7 @@
 .submenu1 li{
     padding: 0 5px;
     border-radius: 5px;
+    width: 100px;
 }
 .submenu1 li:hover{
     background-color: rgb(77, 77, 77);
