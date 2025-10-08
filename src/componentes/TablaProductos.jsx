@@ -60,6 +60,7 @@ export function TablaProductos() {
       <table>
         <thead>
           <tr className="tr1">
+            <th>Id</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Precio</th>
@@ -70,7 +71,7 @@ export function TablaProductos() {
             <th>Creado</th>
             <th>Modificado</th>
             <th>Imagen</th>
-            <th>Acciones</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -79,6 +80,7 @@ export function TablaProductos() {
               {editandoId === producto.id_prod ? (
                 // Modo edición: mostramos inputs
                 <>
+                  <td>{producto.id_prod}</td>
                   <td><input className="input-tabla2" {...register("nombre_prod")} defaultValue={producto.nombre_prod}/></td>
                   <td><input {...register("descripcion_prod")} defaultValue={producto.descripcion_prod}/></td>
                   <td><input className="input-tabla1" type="number" step="0.01" {...register("precio_prod")} defaultValue={producto.precio_prod}/></td>
@@ -106,14 +108,15 @@ export function TablaProductos() {
                   </td>
                   <td>
                     <div className="contentBtn-tabla1">
-                      <button className="btn-tabla1" onClick={handleSubmit(onSubmit)}>Guardar</button>
-                      <button className="btn-tabla1" onClick={() => setEditandoId(null)}>Cancelar</button>
+                      <span className="span-tabla1" onClick={handleSubmit(onSubmit)}><img src="icons/save2.png" alt="save" title="guardar" /></span>
+                      <span className="span-tabla1" onClick={() => setEditandoId(null)}><img src="icons/cancel2.png" alt="cancel" title="cancelar" /></span>
                     </div> 
                   </td>
                 </>
               ) : (
                 // Modo visual: mostramos datos normales
                 <>
+                  <td>{producto.id_prod}</td>
                   <td>{producto.nombre_prod}</td>
                   <td>{producto.descripcion_prod}</td>
                   <td>{producto.precio_prod}</td>
@@ -129,11 +132,11 @@ export function TablaProductos() {
                   <td>
                     {/* Activamos modo edición y cargamos valores en el formulario */}
                     <div className="contentBtn-tabla1">
-                      <button className="btn-tabla1" onClick={() => {
+                      <span className="span-tabla1" onClick={() => {
                           reset(producto); // carga valores actuales en el form
                           setEditandoId(producto.id_prod); // activa modo edición
-                        }}>Editar</button>
-                      {user?.rol === 1 && <button className="btn-tabla1" onClick={()=>btnEliminarProducto(producto.id_prod)}>Eliminar</button>}
+                        }}><img src="icons/lapiz.png" alt="editar" title="editar"/></span>
+                      {user?.rol === 1 && <span className="span-tabla1" onClick={()=>btnEliminarProducto(producto.id_prod)}><img src="icons/basura.png"/></span>}
                     </div>
                   </td>
                 </>

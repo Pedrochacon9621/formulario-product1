@@ -47,7 +47,7 @@ export function TablaUsuarios() {
                         <th>Apellido</th>
                         <th>Correo electrónico</th>
                         <th>rol</th>
-                        <th>Acciones</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,8 +69,8 @@ export function TablaUsuarios() {
                                 </td>
                                 <td>
                                     <div className="contentBtn-tabla1">
-                                        <button className="btn-tabla1" onClick={handleSubmit(onSubmit)}>Guardar</button>
-                                        <button className="btn-tabla1" onClick={() => setEditandoId(null)}>Cancelar</button>
+                                        <span className="span-tabla1" onClick={handleSubmit(onSubmit)}><img src="icons/save2.png" alt="save" title="guardar" /></span>
+                                        <span className="span-tabla1" onClick={() => setEditandoId(null)}><img src="icons/cancel2.png" alt="cancel" title="cancelar" /></span>
                                     </div> 
                                 </td>
                                 </>
@@ -85,12 +85,12 @@ export function TablaUsuarios() {
                                     <td>
                                         <div className="contentBtn-tabla1">
                                             {/* Activamos modo edición y cargamos valores en el formulario */}
-                                                <button className="btn-tabla1" onClick={() => {
+                                                <span className="span-tabla1" onClick={() => {
                                                     reset(usuario); // carga valores actuales en el form
                                                     setValue("rol", String(usuario.rol.id_rol)); // ← fuerza el valor del select
                                                     setEditandoId(usuario.id); // activa modo edición
-                                                }}>Editar</button>
-                                                {user?.rol === 1 && <button className="btn-tabla1" onClick={()=>btnEliminarUsuario(usuario.id)}>Eliminar</button>}
+                                                }}><img src="icons/lapiz.png" alt="editar" title="editar"/></span>
+                                                {user?.rol === 1 && <span className="span-tabla1" onClick={()=>btnEliminarUsuario(usuario.id)}><img src="icons/basura.png" alt="eliminar" title="eliminar"/></span>}
                                         </div>
                                     </td>
                                 </> 

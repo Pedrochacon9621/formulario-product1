@@ -202,11 +202,14 @@ thead tr:first-child th {
 .contentBtn-tabla1{
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 .btn-tabla1{
   font-size: 12px;
   padding: 0 2px;
+}
+.span-tabla1{
+  cursor: pointer;
 }
 .input-tabla1{
   width: 50px;
