@@ -136,7 +136,7 @@ export function TablaProductos() {
                           reset(producto); // carga valores actuales en el form
                           setEditandoId(producto.id_prod); // activa modo edición
                         }}><img src="icons/lapiz.png" alt="editar" title="editar"/></span>
-                      {user?.rol === 1 && <span className="span-tabla1" onClick={()=>btnEliminarProducto(producto.id_prod)}><img src="icons/basura.png"/></span>}
+                      {user?.rol === 1 && <span className="span-tabla1" onClick={()=>btnEliminarProducto(producto.id_prod)}><img src="icons/basura.png" title="eliminar"/></span>}
                     </div>
                   </td>
                 </>
