@@ -73,12 +73,13 @@ export const filtrarCategoria = async ({busqueda})=>{
 }
 
 //BARRA DE BUSQUEDA:
-export const buscarProducto = async ({busqueda}) => {
+export const buscarProducto = async ({busqueda}, url) => {
   const params = new URLSearchParams();
   if (busqueda) params.append("busqueda", busqueda);
-
+  
   try {
-    const response = await apiUrl.get(`/productos/?${params.toString()}`);
+    const response = await apiUrl.get(`/${url}/?${params.toString()}`);
+    
     return response.data;
   } catch (error) {
     console.error("Error al buscar productos:", error);

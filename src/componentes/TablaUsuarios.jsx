@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { useEffect, useState } from "react"
 import { actualizarUsuario, todosUsuariosRol,todosRol, eliminarUsuario } from "../api/api";
 import { useUser } from "../context/UserContext";
+import { BarraBusqueda } from "./BarraBusqueda";
 export function TablaUsuarios() {
     const {user, refreshUser} = useUser()
     const {register, handleSubmit, reset, setValue, formState: { dirtyFields }}= useForm();
@@ -37,8 +38,13 @@ export function TablaUsuarios() {
         await eliminarUsuario(id);
         await cargarUsuarios();
     }
+
+    function buscarUsuario(usuariosFiltrados) {
+        setUsuarios(usuariosFiltrados)
+    }
     return (
-        <div className="content-tabla1"> 
+        <div className="content-tabla1 ptop-filtro"> 
+           <div style={{marginBottom:"7px", display:"flex", justifyContent:"flex-end"}}><BarraBusqueda onResultados={buscarUsuario}/></div>
             <table>
                 <thead>
                     <tr className="tr1">

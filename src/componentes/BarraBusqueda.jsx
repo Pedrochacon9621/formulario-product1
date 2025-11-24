@@ -1,10 +1,18 @@
 import { useForm } from "react-hook-form"
-import { buscarProducto, filtrarProducto, todosProductos } from "../api/api"
+import { buscarProducto } from "../api/api"
+import { useLocation } from "react-router-dom"
 export function BarraBusqueda({onResultados}) {
-    
+    const location = useLocation()
     const {register, handleSubmit} = useForm()
+
+    // Extraer el primer segmento después de "/"
+    const pathSegments = location.pathname.split("/");
+    const primerSegmento = pathSegments[1]; // "categorias" o "productos"
+    const URLbusqueda = primerSegmento; // ya lo tienes en una const
+
+
     const onSubmit = handleSubmit(async data =>{
-        const resBusqueda = await buscarProducto(data)
+        const resBusqueda = await buscarProducto(data, URLbusqueda)
          if (onResultados){
             onResultados(resBusqueda)
          }

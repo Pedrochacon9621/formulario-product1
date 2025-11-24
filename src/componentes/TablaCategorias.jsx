@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { todosCategorias, actualizarCategoria, eliminarCategoria } from "../api/api"
 import { useForm } from "react-hook-form"
 import { useUser } from "../context/UserContext"
+import { BarraBusqueda } from "./BarraBusqueda"
 export function TablaCategorias() {
      const {user} = useUser()
     const {register, handleSubmit, reset, formState: { dirtyFields }}= useForm();
@@ -32,8 +33,12 @@ export function TablaCategorias() {
         await eliminarCategoria(id_cat);
         await cargarCategorias(); // ← refresca la tabla
     }
+    function buscarCategoria(categoriaFiltrada) {
+        setCategorias(categoriaFiltrada)
+    }
     return(
-        <div className="content-tabla1"> 
+        <div className="content-tabla1 ptop-filtro"> 
+            <div style={{marginBottom:"7px", display:"flex", justifyContent:"flex-end"}}><BarraBusqueda onResultados={buscarCategoria}/></div>
             <table>
                 <thead>
                     <tr className="tr1">
