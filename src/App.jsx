@@ -8,6 +8,8 @@ import { Categorias } from './paginas/Categorias'
 import { FormularioUsuarios } from './paginas/FormularioUsuarios'
 import { Usuarios } from './paginas/Usuarios'
 import { UserProvider } from './context/UserContext'
+import { Filtros } from './componentes/Filtros'
+import { BarraBusqueda } from './componentes/BarraBusqueda'
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Inicio/>}/>
+            <Route path='/1' element={<BarraBusqueda/>}/>
             <Route path='/usuarios' element={<Usuarios/>}/>
             <Route path='/formulariousuarios' element={<FormularioUsuarios/>}/>
             <Route path='/categorias' element={<Categorias/>}/>

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { todosProductos, actualizarProducto, eliminarProducto } from "../api/api";
 import { useUser } from "../context/UserContext";
+import { Filtros } from "./Filtros"
+import { BarraBusqueda } from "./BarraBusqueda";
 
 export function TablaProductos() {
   const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/do1we5kur/";
@@ -55,8 +57,18 @@ export function TablaProductos() {
     await cargarProductos()
   }
 
+// FUncion para actualizar productos POR FILTRO---- Esta se pasa al componente de FILTROS---
+  function actualizarProductosFiltrados(productosFiltrados) {
+    setProductos(productosFiltrados);
+  }
+
   return (
-    <div className="content-tabla1">
+    <div className="content-tabla1 ptop-filtro"> 
+      <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"7px"}}>
+        <Filtros onFiltrar={actualizarProductosFiltrados}/>
+        <BarraBusqueda onResultados={actualizarProductosFiltrados}/>
+      </div>  
+        
       <table>
         <thead>
           <tr className="tr1">

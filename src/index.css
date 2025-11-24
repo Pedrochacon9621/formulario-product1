@@ -11,6 +11,9 @@ body{
 label, button{
     font-weight: 500;
 }
+label{
+    cursor: pointer;
+}
 button{
     font-size: 1rem;
 }
@@ -20,6 +23,17 @@ input{
     border-radius: 5px;
     padding-left:10px;
     padding-right: 10px;
+}
+
+input[type = "range"]{
+ padding: 0;
+ cursor: pointer;
+}
+
+input[type = "radio"]{
+    padding: 0;
+    height: 23px;
+    cursor: pointer;
 }
 
 textarea{

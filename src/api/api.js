@@ -42,6 +42,51 @@ export const todosUsuariosRol= ()=>{
 }
 //Rutas GET--------------------------------------------------------------------------------------------------------------------------------------------
 
+// Ruta menus con filtro-----------------------------------------------------------------------------------------------------------------------------
+export const filtrarProducto = async ({busqueda, categoria_prod, precio_prod, nombre_prod}) =>{
+    const params = new URLSearchParams();
+    if (busqueda) params.append("busqueda", busqueda);
+    if (categoria_prod) params.append("categoria_prod", categoria_prod);
+    if (precio_prod) params.append("precio_prod__lte", precio_prod);
+    if (nombre_prod) params.append("nombre_prod__icontains", nombre_prod);
+
+    try {
+    const response = await apiUrl.get(`/productos/?${params.toString()}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al buscar productos:", error);
+    return [];
+  }
+
+}
+export const filtrarCategoria = async ({busqueda})=>{
+    const params = new URLSearchParams();
+    if (busqueda) params.append("busqueda", busqueda);
+
+    try {
+        const response = await apiUrl.get(`/categorias/?${params.toString()}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error al buscar categorias:", error);
+        return [];
+    }
+}
+
+//BARRA DE BUSQUEDA:
+export const buscarProducto = async ({busqueda}) => {
+  const params = new URLSearchParams();
+  if (busqueda) params.append("busqueda", busqueda);
+
+  try {
+    const response = await apiUrl.get(`/productos/?${params.toString()}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al buscar productos:", error);
+    return [];
+  }
+};
+// Ruta menus con filtro-----------------------------------------------------------------------------------------------------------------------------
+
 //Rutas POST--------------------------------------------------------------------------------------------------------------------------------------------
 export const guardarProducto = (producto)=>{
     return apiUrl.post('/productos/', producto)
