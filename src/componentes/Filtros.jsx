@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 import { useState, useEffect, useRef } from "react";
 import { todosCategorias, filtrarProducto } from "../api/api";
-export function Filtros({onFiltrar}) {
+export function Filtros({onFiltrar, onQuitarFiltros}) {
     const [categorias, setCategorias] = useState([])
     const [mostrarFiltros, setMostrarFiltros] = useState(false); // para la muestra del componente filtros
     const filtrosRef = useRef(null);// para la muestra del componente filtros
@@ -61,8 +61,10 @@ export function Filtros({onFiltrar}) {
                             </div>
                             <div>
                                 <button className="btnFiltros" type="submit">Buscar</button>
+                                <button style={{marginLeft:"5px"}} className="btnFiltros" type="button" onClick={()=>{onQuitarFiltros()}}>Quitar Filtros</button>
                             </div>                    
                         </form>
+                        
                 </div>
             )}
         </div>

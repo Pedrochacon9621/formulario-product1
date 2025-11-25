@@ -51,7 +51,7 @@ export const filtrarProducto = async ({busqueda, categoria_prod, precio_prod, no
     if (nombre_prod) params.append("nombre_prod__icontains", nombre_prod);
 
     try {
-    const response = await apiUrl.get(`/productos/?${params.toString()}`);
+    const response = await apiUrl.get(`/productosc/?${params.toString()}`);
     return response.data;
   } catch (error) {
     console.error("Error al buscar productos:", error);

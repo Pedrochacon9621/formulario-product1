@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { todosProductos, actualizarProducto, eliminarProducto } from "../api/api";
+import { todosProductos, actualizarProducto, eliminarProducto, todosProductosCat, todosCategorias } from "../api/api";
 import { useUser } from "../context/UserContext";
 import { Filtros } from "./Filtros"
 import { BarraBusqueda } from "./BarraBusqueda";
@@ -17,17 +17,23 @@ export function TablaProductos() {
   const {user}=useUser()
   const [productos, setProductos] = useState([]);
   const [editandoId, setEditandoId] = useState(null);//para declarar la fila a editar
+  const [categorias, setCategorias] = useState([])
 
   // useForm con acceso a dirtyFields para saber qué campos fueron modificados
   const {register, handleSubmit, reset, formState: { dirtyFields }} = useForm();
 
   // Cargar productos al montar el componente
     async function cargarProductos() {
-      const res = await todosProductos();
+      const res = await todosProductosCat();
       setProductos(res.data);
-    }  
+    } 
+    async function cargarCategorias() {
+      const res = await todosCategorias()
+      setCategorias(res.data)
+    } 
   useEffect(() => {
     cargarProductos();
+    cargarCategorias();
     
   }, []);
 
@@ -65,7 +71,7 @@ export function TablaProductos() {
   return (
     <div className="content-tabla1 ptop-filtro"> 
       <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"7px"}}>
-        <Filtros onFiltrar={actualizarProductosFiltrados}/>
+        <Filtros onFiltrar={actualizarProductosFiltrados} onQuitarFiltros={cargarProductos}/>
         <BarraBusqueda onResultados={actualizarProductosFiltrados}/>
       </div>  
         
@@ -96,7 +102,15 @@ export function TablaProductos() {
                   <td><input className="input-tabla2" {...register("nombre_prod")} defaultValue={producto.nombre_prod}/></td>
                   <td><input {...register("descripcion_prod")} defaultValue={producto.descripcion_prod}/></td>
                   <td><input className="input-tabla1" type="number" step="0.01" {...register("precio_prod")} defaultValue={producto.precio_prod}/></td>
-                  <td><input className="input-tabla1" {...register("categoria_prod")} defaultValue={producto.categoria_prod}/></td>
+                  {/*<td><input className="input-tabla1" {...register("categoria_prod")} defaultValue={producto.categoria_prod}/></td>*/}
+                  <td>
+                    <label>{producto.categoria_prod.nombre_cat}</label>
+                    <select {...register("categoria_prod")}>
+                    {categorias.map(categoria =>(
+                        <option key={categoria.id_cat} value={categoria.id_cat}>{categoria.nombre_cat}</option>
+                    ))}
+                    </select>
+                  </td>
                   <td><select {...register("disponible")}>
                       <option value={true}>Sí</option>
                       <option value={false}>No</option>
@@ -132,7 +146,7 @@ export function TablaProductos() {
                   <td>{producto.nombre_prod}</td>
                   <td>{producto.descripcion_prod}</td>
                   <td>{producto.precio_prod}</td>
-                  <td>{producto.categoria_prod}</td>
+                  <td>{producto.categoria_prod.nombre_cat}</td>
                   <td>{producto.disponible ? "Sí" : "No"}</td>
                   <td>{producto.tiempo_preparacion}</td>
                   <td>{producto.destacado ? "Sí" : "No"}</td>

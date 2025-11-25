@@ -14,7 +14,7 @@ export function FormularioUsuarios() {
              <Nav/>
             <div className="main1">
                 <div>
-                    <BotonEnlace url="/usuarios" texto="Ver usuarios"/>
+                    <BotonEnlace url="/usuariosr" texto="Ver usuarios"/>
                     <FormUsuarios/>
                 </div>
             </div>
