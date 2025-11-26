@@ -7,7 +7,7 @@ export function FormularioCategorias() {
         <div>
             <Nav/>
             <div className="main1">
-                <div>
+                <div className="main-center">
                     <BotonEnlace url="/categorias" texto="Ver categorías"/>
                     <FormCategorias/>
                 </div>

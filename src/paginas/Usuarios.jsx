@@ -13,7 +13,7 @@ export function Usuarios() {
         <div>
             <Nav/>
                 <div className="main1">
-                    <div>
+                    <div className="main-center">
                         <BotonEnlace url="/formulariousuarios" texto="+ Añadir nuevo"/>
                         <TablaUsuarios/>
                     </div>

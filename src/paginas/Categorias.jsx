@@ -8,7 +8,7 @@ export function Categorias() {
         <div>
             <Nav/>
             <div className="main1">
-                <div>
+                <div className="main-center">
                     <BotonEnlace url="/formulariocategorias" texto="+ Añadir nuevo"/>
                     <TablaCategorias/>
                 </div>

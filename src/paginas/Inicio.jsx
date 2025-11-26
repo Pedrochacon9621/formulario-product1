@@ -9,7 +9,7 @@ export function Inicio() {
 
     useEffect(() => {
         if (!loading && user) {
-            navigate("/productos");
+            navigate("/productosc");
         }
     }, [loading, user, navigate]);
 

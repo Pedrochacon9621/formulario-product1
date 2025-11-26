@@ -7,7 +7,7 @@ export function FormularioProductos() {
         <div>
             <Nav/>
             <div className="main1">
-                <div>
+                <div className="main-center">
                     <BotonEnlace url="/productos" texto="Ver productos"/>
                     <FormProductos/>
                 </div>
