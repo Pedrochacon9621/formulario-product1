@@ -24,6 +24,7 @@
     align-items: center;
     padding: 50px 0;
     background-color: rgb(243, 243, 243);
+    overflow-x: auto;   /* ✅ activa scroll horizontal si se desborda */
 }
 .content-btnEnlace{
   margin-bottom: 10px;
@@ -145,8 +146,6 @@
   /*max-width: 1280px;*/
   padding: 40px;
   border-radius: 10px;
-  overflow-x: auto;   /* ✅ activa scroll horizontal si se desborda */
-
 }
 .ptop-filtro{
   padding-top: 10px;
