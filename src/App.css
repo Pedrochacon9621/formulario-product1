@@ -145,6 +145,8 @@
   /*max-width: 1280px;*/
   padding: 40px;
   border-radius: 10px;
+  overflow-x: auto;   /* ✅ activa scroll horizontal si se desborda */
+
 }
 .ptop-filtro{
   padding-top: 10px;
@@ -153,7 +155,6 @@
 @media(max-width:1300px){
   .content-tabla1{
     padding: 10px;
-    width: 100%;
   }
 }
 table {
