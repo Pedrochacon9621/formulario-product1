@@ -12,7 +12,7 @@ export function Nav() {
                     <div className="content-menu">
                         <ul className="menu1">
                             <p className="nombreUser">{user.first_name} {user.last_name} {user.rol ==1 ?"(Admin)": "(User)"}</p>
-                            <li><NavLink to="/productos"> Productos </NavLink></li>
+                            <li><NavLink to="/productosc"> Productos </NavLink></li>
                             <li><NavLink to="/categorias">Categorías</NavLink></li>
                             {user?.rol === 1 && <li><NavLink to="/usuariosr">Usuarios</NavLink></li>}
                             <li className="menu-desplega">Nuevo registro
