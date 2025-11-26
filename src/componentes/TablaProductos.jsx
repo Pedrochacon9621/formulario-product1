@@ -127,7 +127,8 @@ export function TablaProductos() {
                   <td>
                     {/* Campo de imagen: solo se envía si el usuario selecciona una nueva */}
                     <div className="contentBtn-tabla1">
-                      <input className="inputImg-tabla" type="file" {...register("img_prod")} />
+                      <label htmlFor="img_prod" className="labelImg-tabla">Cambiar</label>
+                      <input style={{display:"none"}} id="img_prod" className="inputImg-tabla" type="file" {...register("img_prod")} />
                       <img className="imgTabla1" src={obtenerUrlImagen(producto.img_prod)} alt="" style={{ marginTop: "5px" }}/>
                     </div>
                   </td>
