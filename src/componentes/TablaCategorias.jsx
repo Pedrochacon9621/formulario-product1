@@ -54,7 +54,7 @@ export function TablaCategorias() {
                                 // Modo edición: mostramos inputs
                                 <>
                                 <td><input {...register("nombre_cat")} /></td>
-                                <td><input {...register("descripcion_cat")} /></td>
+                                <td><textarea style={{width:"100%", height:"60px"}} {...register("descripcion_cat")} /></td>
                                 <td>
                                     <div className="contentBtn-tabla1">
                                         <span className="span-tabla1" onClick={handleSubmit(onSubmit)}><img src="icons/save2.png" alt="save" title="guardar" /></span>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { todosProductos, actualizarProducto, eliminarProducto, todosProductosCat, todosCategorias } from "../api/api";
+import { actualizarProducto, eliminarProducto, todosProductosCat, todosCategorias } from "../api/api";
 import { useUser } from "../context/UserContext";
 import { Filtros } from "./Filtros"
 import { BarraBusqueda } from "./BarraBusqueda";
@@ -20,7 +20,7 @@ export function TablaProductos() {
   const [categorias, setCategorias] = useState([])
 
   // useForm con acceso a dirtyFields para saber qué campos fueron modificados
-  const {register, handleSubmit, reset, formState: { dirtyFields }} = useForm();
+  const {register, handleSubmit, reset, setValue, formState: { dirtyFields }} = useForm();
 
   // Cargar productos al montar el componente
     async function cargarProductos() {
@@ -100,12 +100,11 @@ export function TablaProductos() {
                 <>
                   <td>{producto.id_prod}</td>
                   <td><input className="input-tabla2" {...register("nombre_prod")} defaultValue={producto.nombre_prod}/></td>
-                  <td><input {...register("descripcion_prod")} defaultValue={producto.descripcion_prod}/></td>
+                  <td><textarea {...register("descripcion_prod")} defaultValue={producto.descripcion_prod}/></td>
                   <td><input className="input-tabla1" type="number" step="0.01" {...register("precio_prod")} defaultValue={producto.precio_prod}/></td>
                   {/*<td><input className="input-tabla1" {...register("categoria_prod")} defaultValue={producto.categoria_prod}/></td>*/}
                   <td>
-                    <label>{producto.categoria_prod.nombre_cat}</label>
-                    <select {...register("categoria_prod")}>
+                    <select {...register("categoria_prod")} defaultValue={producto.categoria_prod.id_cat}>
                     {categorias.map(categoria =>(
                         <option key={categoria.id_cat} value={categoria.id_cat}>{categoria.nombre_cat}</option>
                     ))}
@@ -160,6 +159,7 @@ export function TablaProductos() {
                     <div className="contentBtn-tabla1">
                       <span className="span-tabla1" onClick={() => {
                           reset(producto); // carga valores actuales en el form
+                          setValue("categoria_prod", String(producto.categoria_prod.id_cat));
                           setEditandoId(producto.id_prod); // activa modo edición
                         }}><img src="icons/lapiz.png" alt="editar" title="editar"/></span>
                       {user?.rol === 1 && <span className="span-tabla1" onClick={()=>btnEliminarProducto(producto.id_prod)}><img src="icons/basura.png" title="eliminar"/></span>}
