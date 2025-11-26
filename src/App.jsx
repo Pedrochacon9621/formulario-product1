@@ -18,11 +18,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<Inicio/>}/>
-            <Route path='/1' element={<BarraBusqueda/>}/>
             <Route path='/usuariosr' element={<Usuarios/>}/>
             <Route path='/formulariousuarios' element={<FormularioUsuarios/>}/>
             <Route path='/categorias' element={<Categorias/>}/>
-            <Route path='/productos' element={<Productos/>}/>
+            <Route path='/productosc' element={<Productos/>}/>
             <Route path='/formularioproductos' element={<FormularioProductos/>}/>
             <Route path='/formulariocategorias' element={<FormularioCategorias/>}/>
           </Routes>

@@ -141,7 +141,7 @@ export const login = async (usuario) => {
       path: '/',
     });
     // Redirigir si todo salió bien
-    window.location.href = "/productos";
+    window.location.href = "/productosc";
   } catch (error) {
     // Si el servidor responde con 401 o hay otro error
     alert("Autenticación incorrecta. Verifica tus credenciales.");
