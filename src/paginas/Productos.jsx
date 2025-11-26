@@ -8,7 +8,7 @@ export function Productos() {
         <div>
             <Nav/>
             <div className="main1">
-                <div>
+                <div className="main-center">
                     <BotonEnlace url="/formularioproductos" texto="+ Añadir nuevo"/>
                     <TablaProductos/>
                 </div>
