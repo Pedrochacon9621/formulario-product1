@@ -116,15 +116,27 @@ export const actualizarUsuario = (id, usuario)=>{
 
 //RUTAS DELETE--------------------------------------------------------------------------------------------------------------------------------------------
 
-export const eliminarUsuario = (id) =>{
+export const eliminarUsuario = (id) => {
+  if (window.confirm("¿Seguro que desea eliminar el usuario?")) {
     return apiUrl.delete(`/usuarios/${id}/`)
+  }
+  return Promise.resolve(null) // si cancela, no hace nada
 }
-export const eliminarProducto = (id_prod) =>{
+
+export const eliminarProducto = (id_prod) => {
+  if (window.confirm("¿Seguro que desea eliminar el producto?")) {
     return apiUrl.delete(`/productos/${id_prod}/`)
+  }
+  return Promise.resolve(null)
 }
-export const eliminarCategoria = (id_cat) =>{
+
+export const eliminarCategoria = (id_cat) => {
+  if (window.confirm("¿Seguro que desea eliminar la categoría?")) {
     return apiUrl.delete(`/categorias/${id_cat}/`)
+  }
+  return Promise.resolve(null)
 }
+
 
 //RUTAS DELETE--------------------------------------------------------------------------------------------------------------------------------------------
 
